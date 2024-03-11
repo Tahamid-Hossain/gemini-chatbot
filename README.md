@@ -1,4 +1,4 @@
-# gemini-chatbot
+# Chatbot using langchain, streamlit and gemini
 This is for Information Structure
 Tahamid's ChatBot 🤖
 This project implements a ChatBot using Streamlit, PyPDF2, Google Generative AI, and other libraries. The ChatBot allows users to ask questions based on PDF documents uploaded by the user.
