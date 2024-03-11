@@ -4,7 +4,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 import os
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import google.generativeai as genai
-from langchain_community.vectorstores import FAISS
+from langchain.vectorstores import FAISS
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
@@ -58,7 +58,7 @@ def get_conversational_chain():
     prompt = PromptTemplate(template = prompt_template, input_variables = ["context", "question"])
     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
 
-    return chain
+    return chainD
 
 
 
@@ -82,17 +82,17 @@ def user_input(user_question):
 
 
 def main():
-    st.set_page_config("ChatBot🖥️")
-    st.header("Chat with your PDF 📚")
+    st.set_page_config("Tahamid's ChatBot 🤖")
+    st.header("Tahamid's ChatBot 🤖")
 
-    user_question = st.text_input("Ask a Question from the PDF Files")
+    user_question = st.text_input("Welcome! Ask any question from the PDF Files")
 
     if user_question:
         user_input(user_question)
 
     with st.sidebar:
-        st.title("Gemini ChatBot 🤖")
-        pdf_docs = st.file_uploader("Upload your PDF files and click Submit Button ", accept_multiple_files=True)
+        st.title("Menu:")
+        pdf_docs = st.file_uploader("Upload your PDF files and click on the Submit button", accept_multiple_files=True)
         if st.button("Submit"):
             with st.spinner("Processing..."):
                 raw_text = get_pdf_text(pdf_docs)
